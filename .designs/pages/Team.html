@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarCity - Team</title>
+    <style id="theme-vars">
+/* 21th Design Library Tokens */
+/* Source preserved from uploaded CSS with grouped English comments only. */
+
+/* Tailwind import */
+@import "tailwindcss";
+
+/* Dark variant */
+@custom-variant dark (&:is(.dark *));
+
+/* Light theme tokens */
+:root {
+  /* Surface colors */
+  --background: oklch(0.8328 0.0044 197.0717);
+  --foreground: oklch(0.1776 0 0);
+  --card: oklch(0.8868 0.0022 197.1175);
+  --card-foreground: oklch(0.1776 0 0);
+  --popover: oklch(0.8868 0.0022 197.1175);
+  --popover-foreground: oklch(0.1776 0 0);
+  --primary: oklch(0.1776 0 0);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.1776 0 0);
+  --secondary-foreground: oklch(1.0000 0 0);
+  --muted: oklch(0.8868 0.0022 197.1175);
+  --muted-foreground: oklch(0.6268 0 0);
+  --accent: oklch(0.5011 0.2803 263.8212);
+  --accent-foreground: oklch(1.0000 0 0);
+  --destructive: oklch(0.5787 0.2005 26.1521);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(1.0000 0 0);
+  --input: oklch(1.0000 0 0);
+  --ring: oklch(0 0 0);
+
+  /* Data visualization colors */
+  --chart-1: oklch(0.5012 0.2803 263.8733);
+  --chart-2: oklch(0.5816 0.2280 265.4658);
+  --chart-3: oklch(0.6785 0.1688 267.8633);
+  --chart-4: oklch(0.7653 0.1192 269.2317);
+  --chart-5: oklch(0.8531 0.0721 270.9681);
+
+  /* Sidebar colors */
+  --sidebar: oklch(0.8868 0.0022 197.1175);
+  --sidebar-foreground: oklch(0 0 0);
+  --sidebar-primary: oklch(0 0 0);
+  --sidebar-primary-foreground: oklch(1.0000 0 0);
+  --sidebar-accent: oklch(0.8328 0.0044 197.0717);
+  --sidebar-accent-foreground: oklch(0 0 0);
+  --sidebar-border: oklch(1.0000 0 0);
+  --sidebar-ring: oklch(0 0 0);
+
+  /* Typography tokens */
+  --font-sans: Geist Mono, ui-monospace, monospace;
+  --font-serif: Geist, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: Geist Mono, ui-monospace, monospace;
+
+  /* Radius and shadow primitives */
+  --radius: 0rem;
+  --shadow-x: 2px;
+  --shadow-y: 2px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 1;
+  --shadow-color: oklch(0 0 0);
+  --shadow-2xs: 2px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-xs: 2px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-sm: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 1px 2px -1px hsl(0 0% 0% / 1.00);
+  --shadow: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 1px 2px -1px hsl(0 0% 0% / 1.00);
+  --shadow-md: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 2px 4px -1px hsl(0 0% 0% / 1.00);
+  --shadow-lg: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 4px 6px -1px hsl(0 0% 0% / 1.00);
+  --shadow-xl: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 8px 10px -1px hsl(0 0% 0% / 1.00);
+  --shadow-2xl: 2px 2px 0px 0px hsl(0 0% 0% / 2.50);
+
+  /* Radius scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Layout and tracking */
+  --tracking-normal: -0.05em;
+  --spacing: 0.25rem;
+}
+
+/* Dark theme tokens */
+.dark {
+  /* Surface colors */
+  --background: oklch(0.1448 0 0);
+  --foreground: oklch(1.0000 0 0);
+  --card: oklch(0.2178 0 0);
+  --card-foreground: oklch(1.0000 0 0);
+  --popover: oklch(0.2178 0 0);
+  --popover-foreground: oklch(1.0000 0 0);
+  --primary: oklch(1.0000 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.3211 0 0);
+  --secondary-foreground: oklch(1.0000 0 0);
+  --muted: oklch(0.3211 0 0);
+  --muted-foreground: oklch(0.7380 0 0);
+  --accent: oklch(0.2520 0 0);
+  --accent-foreground: oklch(1.0000 0 0);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.3211 0 0);
+  --input: oklch(0.2178 0 0);
+  --ring: oklch(0.3211 0 0);
+
+  /* Data visualization colors */
+  --chart-1: oklch(0.7137 0.1434 254.6240);
+  --chart-2: oklch(0.7253 0.1752 349.7607);
+  --chart-3: oklch(0.7729 0.1535 163.2231);
+  --chart-4: oklch(0.8369 0.1644 84.4286);
+  --chart-5: oklch(0.6801 0.1583 276.9349);
+
+  /* Sidebar colors */
+  --sidebar: oklch(0.1448 0 0);
+  --sidebar-foreground: oklch(1.0000 0 0);
+  --sidebar-primary: oklch(1.0000 0 0);
+  --sidebar-primary-foreground: oklch(0 0 0);
+  --sidebar-accent: oklch(0.2520 0 0);
+  --sidebar-accent-foreground: oklch(1.0000 0 0);
+  --sidebar-border: oklch(0.3211 0 0);
+  --sidebar-ring: oklch(0.3211 0 0);
+
+  /* Typography tokens */
+  --font-sans: Geist Mono, ui-monospace, monospace;
+  --font-serif: Geist, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: Geist Mono, ui-monospace, monospace;
+
+  /* Radius and shadow primitives */
+  --radius: 0rem;
+  --shadow-x: 2px;
+  --shadow-y: 2px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 1;
+  --shadow-color: #000000;
+  --shadow-2xs: 2px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-xs: 2px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-sm: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 1px 2px -1px hsl(0 0% 0% / 1.00);
+  --shadow: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 1px 2px -1px hsl(0 0% 0% / 1.00);
+  --shadow-md: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 2px 4px -1px hsl(0 0% 0% / 1.00);
+  --shadow-lg: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 4px 6px -1px hsl(0 0% 0% / 1.00);
+  --shadow-xl: 2px 2px 0px 0px hsl(0 0% 0% / 1.00), 2px 8px 10px -1px hsl(0 0% 0% / 1.00);
+  --shadow-2xl: 2px 2px 0px 0px hsl(0 0% 0% / 2.50);
+}
+
+/* Theme inline token mappings */
+@theme inline {
+  /* Color aliases */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Font aliases */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  /* Radius aliases */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Shadow aliases */
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  /* Tracking aliases */
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+/* Base layer */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+/* Semantic alias layer for component previews */
+:root {
+  /* Surface aliases */
+  --semantic-surface-page: var(--background);
+  --semantic-surface-panel: var(--card);
+  --semantic-surface-overlay: var(--popover);
+  --semantic-surface-muted: var(--muted);
+  --semantic-surface-sidebar: var(--sidebar);
+
+  /* Text aliases */
+  --semantic-text-primary: var(--foreground);
+  --semantic-text-secondary: var(--muted-foreground);
+  --semantic-text-panel: var(--card-foreground);
+  --semantic-text-overlay: var(--popover-foreground);
+  --semantic-text-sidebar: var(--sidebar-foreground);
+  --semantic-text-inverse: var(--primary-foreground);
+
+  /* Brand aliases */
+  --semantic-brand-primary: var(--primary);
+  --semantic-brand-secondary: var(--secondary);
+  --semantic-brand-accent: var(--accent);
+  --semantic-brand-danger: var(--destructive);
+  --semantic-brand-focus: var(--ring);
+
+  /* Border aliases */
+  --semantic-border-default: var(--border);
+  --semantic-border-strong: var(--ring);
+  --semantic-border-panel: var(--sidebar-border);
+  --semantic-border-interactive: var(--input);
+
+  /* Input aliases */
+  --semantic-input-background: var(--input);
+  --semantic-input-foreground: var(--foreground);
+  --semantic-input-placeholder: var(--muted-foreground);
+
+  /* Chart aliases */
+  --semantic-chart-1: var(--chart-1);
+  --semantic-chart-2: var(--chart-2);
+  --semantic-chart-3: var(--chart-3);
+  --semantic-chart-4: var(--chart-4);
+  --semantic-chart-5: var(--chart-5);
+
+  /* Sidebar aliases */
+  --semantic-sidebar-background: var(--sidebar);
+  --semantic-sidebar-foreground: var(--sidebar-foreground);
+  --semantic-sidebar-primary: var(--sidebar-primary);
+  --semantic-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --semantic-sidebar-accent: var(--sidebar-accent);
+  --semantic-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --semantic-sidebar-border: var(--sidebar-border);
+  --semantic-sidebar-ring: var(--sidebar-ring);
+
+  /* Shadow aliases */
+  --semantic-shadow-rest: var(--shadow);
+  --semantic-shadow-sm: var(--shadow-sm);
+  --semantic-shadow-md: var(--shadow-md);
+  --semantic-shadow-lg: var(--shadow-lg);
+
+  /* Radius aliases */
+  --semantic-radius-sm: calc(var(--radius) - 4px);
+  --semantic-radius-md: calc(var(--radius) - 2px);
+  --semantic-radius-lg: var(--radius);
+  --semantic-radius-xl: calc(var(--radius) + 4px);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --radius-lg: var(--radius-lg);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-xl: var(--radius-xl);
+  }
+  @layer base {
+    body { background: var(--background); color: var(--foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--background); }
+      .text-background { color: var(--background); }
+      .border-background { border-color: var(--background); }
+      .ring-background { --tw-ring-color: var(--background); }
+      .bg-foreground { background-color: var(--foreground); }
+      .text-foreground { color: var(--foreground); }
+      .border-foreground { border-color: var(--foreground); }
+      .ring-foreground { --tw-ring-color: var(--foreground); }
+      .bg-card { background-color: var(--card); }
+      .text-card { color: var(--card); }
+      .border-card { border-color: var(--card); }
+      .ring-card { --tw-ring-color: var(--card); }
+      .bg-card-foreground { background-color: var(--card-foreground); }
+      .text-card-foreground { color: var(--card-foreground); }
+      .border-card-foreground { border-color: var(--card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--card-foreground); }
+      .bg-popover { background-color: var(--popover); }
+      .text-popover { color: var(--popover); }
+      .border-popover { border-color: var(--popover); }
+      .ring-popover { --tw-ring-color: var(--popover); }
+      .bg-popover-foreground { background-color: var(--popover-foreground); }
+      .text-popover-foreground { color: var(--popover-foreground); }
+      .border-popover-foreground { border-color: var(--popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--popover-foreground); }
+      .bg-primary { background-color: var(--primary); }
+      .text-primary { color: var(--primary); }
+      .border-primary { border-color: var(--primary); }
+      .ring-primary { --tw-ring-color: var(--primary); }
+      .bg-primary-foreground { background-color: var(--primary-foreground); }
+      .text-primary-foreground { color: var(--primary-foreground); }
+      .border-primary-foreground { border-color: var(--primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--primary-foreground); }
+      .bg-secondary { background-color: var(--secondary); }
+      .text-secondary { color: var(--secondary); }
+      .border-secondary { border-color: var(--secondary); }
+      .ring-secondary { --tw-ring-color: var(--secondary); }
+      .bg-secondary-foreground { background-color: var(--secondary-foreground); }
+      .text-secondary-foreground { color: var(--secondary-foreground); }
+      .border-secondary-foreground { border-color: var(--secondary-foreground); }
+      .ring-secondary-foreground { --tw-ring-color: var(--secondary-foreground); }
+      .bg-muted { background-color: var(--muted); }
+      .text-muted { color: var(--muted); }
+      .border-muted { border-color: var(--muted); }
+      .ring-muted { --tw-ring-color: var(--muted); }
+      .bg-muted-foreground { background-color: var(--muted-foreground); }
+      .text-muted-foreground { color: var(--muted-foreground); }
+      .border-muted-foreground { border-color: var(--muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--muted-foreground); }
+      .bg-accent { background-color: var(--accent); }
+      .text-accent { color: var(--accent); }
+      .border-accent { border-color: var(--accent); }
+      .ring-accent { --tw-ring-color: var(--accent); }
+      .bg-accent-foreground { background-color: var(--accent-foreground); }
+      .text-accent-foreground { color: var(--accent-foreground); }
+      .border-accent-foreground { border-color: var(--accent-foreground); }
+      .ring-accent-foreground { --tw-ring-color: var(--accent-foreground); }
+      .bg-destructive { background-color: var(--destructive); }
+      .text-destructive { color: var(--destructive); }
+      .border-destructive { border-color: var(--destructive); }
+      .ring-destructive { --tw-ring-color: var(--destructive); }
+      .bg-destructive-foreground { background-color: var(--destructive-foreground); }
+      .text-destructive-foreground { color: var(--destructive-foreground); }
+      .border-destructive-foreground { border-color: var(--destructive-foreground); }
+      .ring-destructive-foreground { --tw-ring-color: var(--destructive-foreground); }
+      .bg-border { background-color: var(--border); }
+      .text-border { color: var(--border); }
+      .border-border { border-color: var(--border); }
+      .ring-border { --tw-ring-color: var(--border); }
+      .bg-input { background-color: var(--input); }
+      .text-input { color: var(--input); }
+      .border-input { border-color: var(--input); }
+      .ring-input { --tw-ring-color: var(--input); }
+      .bg-ring { background-color: var(--ring); }
+      .text-ring { color: var(--ring); }
+      .border-ring { border-color: var(--ring); }
+      .ring-ring { --tw-ring-color: var(--ring); }
+      .bg-chart-1 { background-color: var(--chart-1); }
+      .text-chart-1 { color: var(--chart-1); }
+      .border-chart-1 { border-color: var(--chart-1); }
+      .ring-chart-1 { --tw-ring-color: var(--chart-1); }
+      .bg-chart-2 { background-color: var(--chart-2); }
+      .text-chart-2 { color: var(--chart-2); }
+      .border-chart-2 { border-color: var(--chart-2); }
+      .ring-chart-2 { --tw-ring-color: var(--chart-2); }
+      .bg-chart-3 { background-color: var(--chart-3); }
+      .text-chart-3 { color: var(--chart-3); }
+      .border-chart-3 { border-color: var(--chart-3); }
+      .ring-chart-3 { --tw-ring-color: var(--chart-3); }
+      .bg-chart-4 { background-color: var(--chart-4); }
+      .text-chart-4 { color: var(--chart-4); }
+      .border-chart-4 { border-color: var(--chart-4); }
+      .ring-chart-4 { --tw-ring-color: var(--chart-4); }
+      .bg-chart-5 { background-color: var(--chart-5); }
+      .text-chart-5 { color: var(--chart-5); }
+      .border-chart-5 { border-color: var(--chart-5); }
+      .ring-chart-5 { --tw-ring-color: var(--chart-5); }
+      .bg-sidebar { background-color: var(--sidebar); }
+      .text-sidebar { color: var(--sidebar); }
+      .border-sidebar { border-color: var(--sidebar); }
+      .ring-sidebar { --tw-ring-color: var(--sidebar); }
+      .bg-sidebar-foreground { background-color: var(--sidebar-foreground); }
+      .text-sidebar-foreground { color: var(--sidebar-foreground); }
+      .border-sidebar-foreground { border-color: var(--sidebar-foreground); }
+      .ring-sidebar-foreground { --tw-ring-color: var(--sidebar-foreground); }
+      .bg-sidebar-primary { background-color: var(--sidebar-primary); }
+      .text-sidebar-primary { color: var(--sidebar-primary); }
+      .border-sidebar-primary { border-color: var(--sidebar-primary); }
+      .ring-sidebar-primary { --tw-ring-color: var(--sidebar-primary); }
+      .bg-sidebar-primary-foreground { background-color: var(--sidebar-primary-foreground); }
+      .text-sidebar-primary-foreground { color: var(--sidebar-primary-foreground); }
+      .border-sidebar-primary-foreground { border-color: var(--sidebar-primary-foreground); }
+      .ring-sidebar-primary-foreground { --tw-ring-color: var(--sidebar-primary-foreground); }
+      .bg-sidebar-accent { background-color: var(--sidebar-accent); }
+      .text-sidebar-accent { color: var(--sidebar-accent); }
+      .border-sidebar-accent { border-color: var(--sidebar-accent); }
+      .ring-sidebar-accent { --tw-ring-color: var(--sidebar-accent); }
+      .bg-sidebar-accent-foreground { background-color: var(--sidebar-accent-foreground); }
+      .text-sidebar-accent-foreground { color: var(--sidebar-accent-foreground); }
+      .border-sidebar-accent-foreground { border-color: var(--sidebar-accent-foreground); }
+      .ring-sidebar-accent-foreground { --tw-ring-color: var(--sidebar-accent-foreground); }
+      .bg-sidebar-border { background-color: var(--sidebar-border); }
+      .text-sidebar-border { color: var(--sidebar-border); }
+      .border-sidebar-border { border-color: var(--sidebar-border); }
+      .ring-sidebar-border { --tw-ring-color: var(--sidebar-border); }
+      .bg-sidebar-ring { background-color: var(--sidebar-ring); }
+      .text-sidebar-ring { color: var(--sidebar-ring); }
+      .border-sidebar-ring { border-color: var(--sidebar-ring); }
+      .ring-sidebar-ring { --tw-ring-color: var(--sidebar-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+  <main class="min-h-screen flex bg-background">
+    <!-- Desktop sidebar -->
+    <aside class="hidden lg:flex fixed top-0 left-0 z-30 w-[260px] h-screen bg-sidebar text-sidebar-foreground border-r border-sidebar-border flex-col p-4 gap-6">
+      <div>
+        <div class="text-[11px] uppercase tracking-widest text-muted-foreground">PLAYER PORTAL</div>
+        <div class="text-xl font-bold tracking-tight font-sans">StarCity</div>
+      </div>
+      <nav class="flex flex-col gap-2" aria-label="Primary">
+        <button data-dom-id="nav-home" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">首页</button>
+        <button data-dom-id="nav-market" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">交易市场</button>
+        <button data-dom-id="nav-team" type="button" class="w-full text-left px-3 py-2.5 bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">团队</button>
+        <button data-dom-id="nav-residences" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">领地</button>
+        <button data-dom-id="nav-tickets" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">工单</button>
+        <button data-dom-id="nav-admin-tickets" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">管理工单</button>
+      </nav>
+    </aside>
+
+    <!-- Mobile drawer overlay -->
+    <div id="mobile-drawer" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/40" data-drawer-backdrop></div>
+      <aside class="absolute top-0 left-0 h-full w-[260px] bg-sidebar text-sidebar-foreground border-r border-sidebar-border flex flex-col p-4 gap-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-[11px] uppercase tracking-widest text-muted-foreground">PLAYER PORTAL</div>
+            <div class="text-xl font-bold tracking-tight font-sans">StarCity</div>
+          </div>
+          <button type="button" class="w-9 h-9 flex items-center justify-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2" data-drawer-close aria-label="关闭导航">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-2" aria-label="Primary">
+          <button data-dom-id="nav-home" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">首页</button>
+          <button data-dom-id="nav-market" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">交易市场</button>
+          <button data-dom-id="nav-team" type="button" class="w-full text-left px-3 py-2.5 bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">团队</button>
+          <button data-dom-id="nav-residences" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">领地</button>
+          <button data-dom-id="nav-tickets" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">工单</button>
+          <button data-dom-id="nav-admin-tickets" type="button" class="w-full text-left px-3 py-2.5 bg-transparent hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-sidebar-ring focus-visible:outline-offset-2">管理工单</button>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- Main area -->
+    <div class="flex-1 min-w-0 flex flex-col min-h-screen lg:ml-[260px]">
+      <!-- Header -->
+      <header class="flex items-center gap-4 px-4 lg:px-5 py-4 bg-card border-b border-border">
+        <button type="button" class="lg:hidden w-9 h-9 flex items-center justify-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2" data-drawer-open aria-label="打开导航">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+        <div class="flex-1 min-w-0">
+          <h1 class="text-xl lg:text-2xl font-bold tracking-tight truncate">团队</h1>
+          <p class="text-sm text-muted-foreground truncate">我的团队、公开列表与申请管理</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <label class="hidden sm:flex items-center gap-2 h-9 px-3 bg-input border border-border shadow-xs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" placeholder="搜索玩家或团队" class="bg-transparent border-0 outline-none text-sm w-32 lg:w-44 text-foreground placeholder:text-muted-foreground" aria-label="搜索玩家或团队" />
+          </label>
+          <button type="button" class="w-9 h-9 hidden sm:flex items-center justify-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2" aria-label="通知">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          </button>
+          <div class="w-9 h-9 flex items-center justify-center bg-primary text-primary-foreground border border-ring shadow-sm font-bold text-sm" aria-label="当前用户">AL</div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="flex-1 p-4 lg:p-5 space-y-4 min-w-0">
+        <article class="bg-card text-card-foreground border border-border shadow p-4 grid gap-4">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <span class="text-[11px] uppercase text-muted-foreground tracking-wider">我的团队</span>
+              <h2 class="text-xl font-bold tracking-tight mt-1">Redstone Builders</h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <button data-dom-id="team-quit" class="h-9 px-3 text-sm bg-destructive text-destructive-foreground border border-transparent shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">退出团队</button>
+              <button class="h-9 px-3 text-sm bg-primary text-primary-foreground border border-transparent shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">编辑公告</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="p-3 border border-border bg-background">
+              <span class="text-[11px] uppercase text-muted-foreground tracking-wider block">队长</span>
+              <span class="text-sm font-semibold mt-1 block">Notch</span>
+            </div>
+            <div class="p-3 border border-border bg-background">
+              <span class="text-[11px] uppercase text-muted-foreground tracking-wider block">成员数</span>
+              <span class="text-sm font-semibold mt-1 block">12</span>
+            </div>
+            <div class="p-3 border border-border bg-background">
+              <span class="text-[11px] uppercase text-muted-foreground tracking-wider block">团队资金</span>
+              <span class="text-sm font-semibold mt-1 block">84,320 币</span>
+            </div>
+            <div class="p-3 border border-border bg-background">
+              <span class="text-[11px] uppercase text-muted-foreground tracking-wider block">创建时间</span>
+              <span class="text-sm font-semibold mt-1 block">2023-08-14</span>
+            </div>
+          </div>
+          <div class="p-3 border border-dashed border-border bg-muted">
+            <span class="text-[11px] uppercase text-muted-foreground tracking-wider block">公告</span>
+            <p class="text-sm mt-1">本周六晚八点举行团队建筑大赛，请所有成员准时参加。仓库材料已补充，建筑师可自由领取。</p>
+          </div>
+        </article>
+
+        <article class="bg-card text-card-foreground border border-border shadow p-4 grid gap-4">
+          <style>
+            .tab-panel { display: none; }
+            #tab-members:checked ~ .tab-panels #panel-members,
+            #tab-applications:checked ~ .tab-panels #panel-applications,
+            #tab-messages:checked ~ .tab-panels #panel-messages,
+            #tab-funds:checked ~ .tab-panels #panel-funds { display: block; }
+            #tab-members:checked ~ .tab-bar label[for="tab-members"],
+            #tab-applications:checked ~ .tab-bar label[for="tab-applications"],
+            #tab-messages:checked ~ .tab-bar label[for="tab-messages"],
+            #tab-funds:checked ~ .tab-bar label[for="tab-funds"] { background: var(--primary); color: var(--primary-foreground); border-color: transparent; box-shadow: var(--shadow-sm); }
+          </style>
+          <div>
+            <input type="radio" name="team-tabs" id="tab-members" checked class="sr-only">
+            <input type="radio" name="team-tabs" id="tab-applications" class="sr-only">
+            <input type="radio" name="team-tabs" id="tab-messages" class="sr-only">
+            <input type="radio" name="team-tabs" id="tab-funds" class="sr-only">
+
+            <div class="tab-bar flex flex-wrap gap-2 border-b border-border pb-3 mb-1">
+              <label for="tab-members" class="h-9 px-4 text-sm cursor-pointer grid place-items-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">成员</label>
+              <label for="tab-applications" class="h-9 px-4 text-sm cursor-pointer grid place-items-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">申请</label>
+              <label for="tab-messages" class="h-9 px-4 text-sm cursor-pointer grid place-items-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">留言</label>
+              <label for="tab-funds" class="h-9 px-4 text-sm cursor-pointer grid place-items-center bg-muted text-foreground border border-ring shadow-sm transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">资金流水</label>
+            </div>
+
+            <div class="tab-panels">
+              <div class="tab-panel" id="panel-members">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm border-collapse">
+                    <thead>
+                      <tr class="text-[11px] uppercase text-muted-foreground tracking-wider text-left border-b border-border">
+                        <th class="py-2 pr-4">玩家</th>
+                        <th class="py-2 pr-4">职位</th>
+                        <th class="py-2 pr-4">加入时间</th>
+                        <th class="py-2">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 font-medium">Notch</td>
+                        <td class="py-2 pr-4"><span class="inline-block px-2 py-0.5 text-[11px] bg-primary text-primary-foreground">队长</span></td>
+                        <td class="py-2 pr-4 text-muted-foreground">2023-08-14</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">降级</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">移除</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 font-medium">Jeb_</td>
+                        <td class="py-2 pr-4"><span class="inline-block px-2 py-0.5 text-[11px] bg-accent text-accent-foreground">副队长</span></td>
+                        <td class="py-2 pr-4 text-muted-foreground">2023-08-15</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">晋升</button>
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">降级</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">移除</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 font-medium">Dinnerbone</td>
+                        <td class="py-2 pr-4"><span class="inline-block px-2 py-0.5 text-[11px] bg-muted border border-border">建筑师</span></td>
+                        <td class="py-2 pr-4 text-muted-foreground">2023-09-02</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">晋升</button>
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">降级</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">移除</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 font-medium">Alex</td>
+                        <td class="py-2 pr-4"><span class="inline-block px-2 py-0.5 text-[11px] bg-muted border border-border">成员</span></td>
+                        <td class="py-2 pr-4 text-muted-foreground">2023-10-11</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">晋升</button>
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">降级</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">移除</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4 font-medium">Steve</td>
+                        <td class="py-2 pr-4"><span class="inline-block px-2 py-0.5 text-[11px] bg-muted border border-border">成员</span></td>
+                        <td class="py-2 pr-4 text-muted-foreground">2023-11-05</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">晋升</button>
+                            <button class="h-7 px-2 text-xs bg-muted text-foreground border border-ring shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">降级</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">移除</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="tab-panel" id="panel-applications">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm border-collapse">
+                    <thead>
+                      <tr class="text-[11px] uppercase text-muted-foreground tracking-wider text-left border-b border-border">
+                        <th class="py-2 pr-4">申请人</th>
+                        <th class="py-2 pr-4">申请时间</th>
+                        <th class="py-2 pr-4">备注</th>
+                        <th class="py-2">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 font-medium">creeper99</td>
+                        <td class="py-2 pr-4 text-muted-foreground">2024-05-20 14:30</td>
+                        <td class="py-2 pr-4">擅长红石机械，有两年建筑经验</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-primary text-primary-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">接受</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">拒绝</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4 font-medium">enderdragon</td>
+                        <td class="py-2 pr-4 text-muted-foreground">2024-05-21 09:15</td>
+                        <td class="py-2 pr-4">想参与末地城改造项目</td>
+                        <td class="py-2">
+                          <div class="flex items-center gap-2">
+                            <button class="h-7 px-2 text-xs bg-primary text-primary-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">接受</button>
+                            <button class="h-7 px-2 text-xs bg-destructive text-destructive-foreground border border-transparent shadow-xs transition-transform hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2">拒绝</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="tab-panel" id="panel-messages">
+                <div class="grid gap-2">
+                  <div class="p-3 border border-border bg-background">
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                      <span class="font-semibold text-sm">Notch</span>
+                      <span class="text-[11px] text-muted-foreground">2024-05-21 10:42</span>
+                    </div>
+                    <p class="text-sm">下周开始新建筑项目，请各位成员提前准备材料。</p>
+                  </div>
+                  <div class="p-3 border border-border bg-background">
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                      <span class="font-semibold text-sm">Jeb_</span>
+                      <span class="text-[11px] text-muted-foreground">2024-05-20 18:15</span>
+                    </div>
+                    <p class="text-sm">记得缴纳本周团队税，用于维护公共设施。</p>
+                  </div>
+                  <div class="p-3 border border-border bg-background">
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                      <span class="font-semibold text-sm">Dinnerbone</span>
+                      <span class="text-[11px] text-muted-foreground">2024-05-19 11:30</span>
+                    </div>
+                    <p class="text-sm">仓库材料已补充，建筑师可自由领取需要的方块。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-panel" id="panel-funds">
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm border-collapse">
+                    <thead>
+                      <tr class="text-[11px] uppercase text-muted-foreground tracking-wider text-left border-b border-border">
+                        <th class="py-2 pr-4">时间</th>
+                        <th class="py-2 pr-4">类型</th>
+                        <th class="py-2 pr-4">备注</th>
+                        <th class="py-2 text-right">金额</th>
+                      </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 text-muted-foreground">2024-05-18</td>
+                        <td class="py-2 pr-4">成员贡献</td>
+                        <td class="py-2 pr-4">Alex 缴纳本周税</td>
+                        <td class="py-2 text-right font-medium text-primary">+500</td>
+                      </tr>
+                      <tr class="border-b border-border">
+                        <td class="py-2 pr-4 text-muted-foreground">2024-05-17</td>
+                        <td class="py-2 pr-4">建筑支出</td>
+                        <td class="py-2 pr-4">购买混凝土与玻璃</td>
+                        <td class="py-2 text-right font-medium text-destructive">-1,200</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4 text-muted-foreground">2024-05-15</td>
+                        <td class="py-2 pr-4">市场交易</td>
+                        <td class="py-2 pr-4">出售多余红石粉</td>
+                        <td class="py-2 text-right font-medium text-primary">+800</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card text-card-foreground border border-border shadow p-4 grid gap-4">
+          <div class="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 class="text-lg font-bold tracking-tight">公开团队</h2>
+              <span class="text-xs text-muted-foreground">浏览可申请加入的团队</span>
+            </div>
+            <label class="flex items-center gap-2 min-h-[38px] px-3 bg-input border border-border shadow-xs">
+              <i data-lucide="search" class="w-4 h-4 text-muted-foreground"></i>
+              <input type="text" placeholder="搜索公开团队" class="bg-transparent border-0 outline-0 text-sm w-44" aria-label="搜索公开团队">
+            </label>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="text-[11px] uppercase text-muted-foreground tracking-wider text-left border-b border-border">
+                  <th class="py-2 pr-4">团队名</th>
+                  <th class="py-2 pr-4">队长</th>
+                  <th class="py-2 pr-4">成员数</th>
+                  <th class="py-2 pr-4">资金</th>
+                  <th class="py-2">状态</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <tr class="border-b border-border">
+                  <td class="py-2 pr-4 font-medium">Redstone Builders</td>
+                  <td class="py-2 pr-4">Notch</td>
+                  <td class="py-2 pr-4">12</td>
+                  <td class="py-2 pr-4">84,320</td>
+                  <td class="py-2"><span class="inline-block px-2 py-0.5 text-[11px] bg-primary text-primary-foreground">已加入</span></td>
+                </tr>
+                <tr class="border-b border-border">
+                  <td class="py-2 pr-4 font-medium">Skyline Architects</td>
+                  <td class="py-2 pr-4">Grian</td>
+                  <td class="py-2 pr-4">8</td>
+                  <td class="py-2 pr-4">42,100</td>
+                  <td class="py-2"><span class="inline-block px-2 py-0.5 text-[11px] bg-accent text-accent-foreground">可申请</span></td>
+                </tr>
+                <tr class="border-b border-border">
+                  <td class="py-2 pr-4 font-medium">Nether Miners</td>
+                  <td class="py-2 pr-4">Techno</td>
+                  <td class="py-2 pr-4">23</td>
+                  <td class="py-2 pr-4">156,800</td>
+                  <td class="py-2"><span class="inline-block px-2 py-0.5 text-[11px] bg-accent text-accent-foreground">可申请</span></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4 font-medium">Ocean Explorers</td>
+                  <td class="py-2 pr-4">Squid</td>
+                  <td class="py-2 pr-4">15</td>
+                  <td class="py-2 pr-4">67,500</td>
+                  <td class="py-2"><span class="inline-block px-2 py-0.5 text-[11px] bg-muted border border-border">已满员</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Mobile drawer toggle
+    (function () {
+      const drawer = document.getElementById('mobile-drawer');
+      document.querySelectorAll('[data-drawer-open]').forEach(btn => btn.addEventListener('click', () => { drawer.classList.remove('hidden'); drawer.setAttribute('aria-hidden', 'false'); }));
+      document.querySelectorAll('[data-drawer-close]').forEach(btn => btn.addEventListener('click', close));
+      document.querySelectorAll('[data-drawer-backdrop]').forEach(el => el.addEventListener('click', close));
+      function close() { drawer.classList.add('hidden'); drawer.setAttribute('aria-hidden', 'true'); }
+    })();
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  </script>
+</body>
+</html>
