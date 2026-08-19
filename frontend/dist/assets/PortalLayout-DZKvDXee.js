@@ -1,0 +1,1 @@
+import{d as o,n as a,p as r,o as p,l}from"./index-CwmQCW6b.js";import{A as s}from"./AppShell-uA55VwH_.js";import"./search-BtNf_JzE.js";import"./log-out--Ai5cbA6.js";const d=o({__name:"PortalLayout",setup(n){const t=l(),e=r(()=>t.meta.title||"StarCity");return(c,i)=>(p(),a(s,{scope:"portal",title:e.value},null,8,["title"]))}});export{d as default};

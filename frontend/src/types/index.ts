@@ -369,45 +369,174 @@ export interface TeamPaginated<T> {
 }
 
 // ===== 领地 =====
+export interface ResidenceArea {
+  name?: string
+  world?: string
+  low?: { x: number; y: number; z: number }
+  high?: { x: number; y: number; z: number }
+  size?: number | string
+  [k: string]: unknown
+}
+
 export interface ResidenceSummary {
   name: string
   owner?: string
   owner_uuid?: string
   world?: string
+  areas?: number
+  subzones?: number
   size?: number | string
   for_sale?: boolean
   sell_price?: number | null
   for_rent?: boolean
-  rentable?: boolean
+  rentable?: boolean | ResidenceRentable
+  rented?: boolean
+  created_at?: string
+  [k: string]: unknown
+}
+
+export interface ResidenceSubzone extends ResidenceSummary {}
+
+export interface ResidenceRentable {
+  cost?: number
+  days?: number
+  allow_renewing?: boolean
+  stay_in_market?: boolean
+  allow_auto_pay?: boolean
+  [k: string]: unknown
+}
+
+export interface ResidenceRentedDetail {
+  renter?: string
+  renter_uuid?: string
+  end_time?: string
+  auto_pay?: boolean
+  cost?: number
+  days?: number
+  [k: string]: unknown
+}
+
+export interface ResidenceTeleport {
+  world?: string
+  x?: number
+  y?: number
+  z?: number
   [k: string]: unknown
 }
 
 export interface ResidenceDetail extends ResidenceSummary {
-  areas?: unknown
-  subzones?: ResidenceSummary[]
-  flags?: Record<string, string | boolean>
-  player_flags?: Record<string, Record<string, string | boolean>>
+  parent?: string
+  subzone?: boolean
+  is_server_land?: boolean
+  hidden?: boolean
+  viewable?: boolean
+  can_manage?: boolean
+  economy_enabled?: boolean
+  rent_system_enabled?: boolean
+  areas_detail?: ResidenceArea[]
+  subzones_detail?: ResidenceSubzone[]
   trusted_players?: string[]
   enter_message?: string
   leave_message?: string
-  rented_detail?: unknown
+  rentable?: ResidenceRentable
+  rented_detail?: ResidenceRentedDetail
   bank?: number | null
-  created_at?: string
+  teleport?: ResidenceTeleport
+  [k: string]: unknown
+}
+
+/** flag 三态值。 */
+export type FlagValue = boolean | null
+
+export interface FlagInfo {
+  flag: string
+  name?: string
+  desc?: string
+  description?: string
+  default?: string | boolean
+  mode?: string
+  value?: FlagValue
+  global_editable?: boolean
+  player_editable?: boolean
+  [k: string]: unknown
+}
+
+export interface FlagCategory {
+  key?: string
+  name?: string
+  flags?: FlagInfo[]
   [k: string]: unknown
 }
 
 export interface ResidenceFlags {
   flags?: Record<string, string | boolean>
   possible_flags?: string[]
+  categories?: FlagCategory[]
   [k: string]: unknown
 }
 
 export interface ResidencePlayerFlags {
   flags?: Record<string, string | boolean>
+  categories?: FlagCategory[]
+  possible_flags?: string[]
   [k: string]: unknown
 }
 
 export type FlagState = 'true' | 'false' | 'remove'
+
+/** 领地列表分页。 */
+export interface ResidenceListPaginated {
+  residences?: ResidenceSummary[]
+  items?: ResidenceSummary[]
+  total?: number
+  page?: number
+  page_size?: number
+  [k: string]: unknown
+}
+
+/** 市场条目。 */
+export interface ResidenceMarketItem {
+  residence?: string
+  name?: string
+  owner?: string
+  owner_uuid?: string
+  world?: string
+  type?: 'sell' | 'rent' | string
+  price?: number
+  size?: number | string
+  areas?: number
+  days?: number
+  renewable?: boolean
+  [k: string]: unknown
+}
+
+export interface ResidenceMarketPaginated {
+  items?: ResidenceMarketItem[]
+  total?: number
+  page?: number
+  page_size?: number
+  economy_enabled?: boolean
+  rent_system_enabled?: boolean
+  [k: string]: unknown
+}
+
+/** 我的租用。 */
+export interface ResidenceRent {
+  residence?: string
+  owner?: string
+  world?: string
+  cost?: number
+  days?: number
+  renter?: string
+  end_time?: string
+  auto_pay?: boolean
+  [k: string]: unknown
+}
+
+export interface ResidenceRentsResult {
+  rents?: ResidenceRent[]
+  [k: string]: unknown
+}
 
 // ===== 工单 =====
 export type TicketStatus = 'OPEN' | 'CLOSED'

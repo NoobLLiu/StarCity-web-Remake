@@ -1,1 +1,0 @@
-import{V as e}from"./index-Bymxq3Ou.js";const o={list(){return e.get("/admin/tickets")},detail(t){return e.get(`/admin/tickets/${encodeURIComponent(t)}`)},reply(t,n){return e.post(`/admin/tickets/${encodeURIComponent(t)}/reply`,{content:n})},setStatus(t,n){return e.post(`/admin/tickets/${encodeURIComponent(t)}/status`,{status:n})}};export{o as adminTicketApi};
