@@ -137,33 +137,69 @@ export interface ExchangePayload {
 }
 
 // ===== 团队 =====
+/** 公开团队列表/搜索返回的行。 */
 export interface TeamSummary {
   tid: string | number
   name: string
   owner?: string
   owner_uuid?: string
   member_count?: number
+  operator_count?: number
   funds?: number
+  activity?: number
   public?: boolean
-  [k: string]: unknown
-}
-
-export interface TeamDetail extends TeamSummary {
-  notice?: string
   friendly_fire?: boolean
+  notice?: string
+  notice_updated_at?: string
+  message_count?: number
+  application_count?: number
+  currency_name?: string
   created_at?: string
-  my_role?: string
   [k: string]: unknown
 }
 
+/** GET /api/team/me 扁平响应。 */
+export interface TeamMeInfo {
+  in_team: boolean
+  tid?: string | number
+  team_id?: string | number
+  name?: string
+  my_role?: 'OPERATOR' | 'MEMBER' | string
+  owner?: string
+  owner_uuid?: string
+  member_count?: number
+  operator_count?: number
+  funds?: number
+  activity?: number
+  public?: boolean
+  friendly_fire?: boolean
+  notice?: string
+  notice_updated_at?: string
+  currency_name?: string
+  created_at?: string
+  members?: TeamMember[]
+  [k: string]: unknown
+}
+
+/** 详情视图（成员可见） */
+export interface TeamDetail extends TeamSummary {
+  my_role?: 'OPERATOR' | 'MEMBER' | string
+  members?: TeamMember[]
+  [k: string]: unknown
+}
+
+/** GET /api/team/:tid/members 直接返回数组。 */
 export interface TeamMember {
   uuid: string
   name?: string
-  role?: string
-  joined_at?: string
+  role?: 'OPERATOR' | 'MEMBER' | string
+  operator?: boolean
+  online?: boolean
+  joined_at?: string | null
   [k: string]: unknown
 }
 
+/** GET /api/team/:tid/applications 直接返回数组。 */
 export interface TeamApplication {
   applicant_uuid: string
   applicant?: string
@@ -173,20 +209,57 @@ export interface TeamApplication {
 }
 
 export interface TeamMessage {
-  message_id?: string | number
   sender_uuid: string
   sender?: string
   content: string
   time?: string
+  timestamp?: number
+  message_id?: string | number
   [k: string]: unknown
 }
 
 export interface TeamFundLog {
-  log_id?: string | number
-  time?: string
   type?: string
   amount: number
+  change?: number
+  reason?: string
   note?: string
+  balance_before?: number
+  balance_after?: number
+  time?: string
+  timestamp?: number
+  log_id?: string | number
+  [k: string]: unknown
+}
+
+export interface TeamFundsInfo {
+  tid?: string | number
+  team_id?: string | number
+  funds: number
+  currency_name?: string
+  [k: string]: unknown
+}
+
+export interface TeamMessageState {
+  unread_messages?: number
+  unread_notice?: boolean
+  [k: string]: unknown
+}
+
+export interface TeamOnlineMate {
+  uuid?: string
+  name?: string
+  [k: string]: unknown
+}
+
+/** 分页响应（排行榜/流水/留言）。 */
+export interface TeamPaginated<T> {
+  page: number
+  page_size: number
+  total_pages?: number
+  total_items?: number
+  total?: number
+  items: T[]
   [k: string]: unknown
 }
 
