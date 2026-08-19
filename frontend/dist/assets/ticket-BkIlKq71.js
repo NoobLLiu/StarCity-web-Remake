@@ -1,0 +1,1 @@
+import{s as e}from"./index-CPPwzjDg.js";const n={create(t){return e.post("/tickets",t)},list(){return e.get("/tickets")},detail(t){return e.get(`/tickets/${encodeURIComponent(t)}`)},reply(t,r){return e.post(`/tickets/${encodeURIComponent(t)}/reply`,{content:r})}};export{n as t};
