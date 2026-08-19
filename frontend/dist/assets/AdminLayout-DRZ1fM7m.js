@@ -1,0 +1,1 @@
+import{d as o,n as a,p as n,o as p,l as s}from"./index-Bymxq3Ou.js";import{A as r}from"./AppShell-CJM1WnTo.js";import"./search-CEDpcl-i.js";import"./log-out-OU7a2e9P.js";const f=o({__name:"AdminLayout",setup(l){const t=s(),e=n(()=>t.meta.title||"管理后台");return(m,c)=>(p(),a(r,{scope:"admin",title:e.value},null,8,["title"]))}});export{f as default};

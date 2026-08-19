@@ -49,12 +49,23 @@ export interface Paginated<T> {
 }
 
 // ===== 市场 =====
+/** GET /api/market/items 的行（itemView）。 */
 export interface MarketItem {
   item_id: string
-  name: string
+  name?: string
+  display_name?: string
+  item_name?: string
   lowest_sell_price?: number | null
   highest_buy_price?: number | null
   volume?: number | null
+  volume_today?: number | null
+  suspended?: boolean
+  active_stock?: number | null
+  change_7d_percent?: number | null
+  change_30d_percent?: number | null
+  material?: string
+  created_by?: string
+  created_at?: string
   [k: string]: unknown
 }
 
@@ -63,31 +74,77 @@ export interface OrderbookLevel {
   quantity: number
 }
 
+/** GET /api/market/orderbook/:item_id。 */
 export interface Orderbook {
   item_id: string
-  buys: OrderbookLevel[]
-  sells: OrderbookLevel[]
+  buys?: OrderbookLevel[]
+  sells?: OrderbookLevel[]
+  bids?: OrderbookLevel[]
+  asks?: OrderbookLevel[]
+  bids_raw?: MarketOrder[]
+  asks_raw?: MarketOrder[]
+  last_price?: number | null
   [k: string]: unknown
 }
 
+/** GET /api/market/info。 */
 export interface MarketInfo {
+  currency_name?: string
+  tax_rate?: number
+  tax_rate_percent?: number
+  diamond_to_money?: number
+  diamond_exchange_tax?: number
+  diamond_exchange_received?: number
+  diamond_exchange_cost?: number
+  price_limit_enabled?: boolean
+  limit_up_percent?: number
+  limit_down_percent?: number
+  max_order_quantity?: number
+  price_tick?: number
+  min_price?: number
+  max_price?: number
+  order_expire_days?: number
+  announcements?: string
   notice?: string
   announcement?: string
-  tax_rate?: number
   [k: string]: unknown
 }
 
+/** GET /api/market/items/:item_id 详情。 */
+export interface MarketItemDetail {
+  item?: MarketItem
+  status?: string
+  listing?: MarketOrder[]
+  supply_plan?: unknown
+  is_special_category?: boolean
+  can_quick_sell?: boolean
+  can_supply?: boolean
+  can_place_buy?: boolean
+  last_price?: number | null
+  change_7d_percent?: number | null
+  change_30d_percent?: number | null
+  [k: string]: unknown
+}
+
+/** GET /api/market/me/orders 数组元素（orderView）。 */
 export interface MarketOrder {
   order_id: string | number
-  type: 'buy' | 'sell'
+  type: 'buy' | 'sell' | string
   item_id: string
   name?: string
+  item_name?: string
   price: number
   quantity: number
+  filled_qty?: number
+  remaining_qty?: number
   status?: string
+  created_at?: string
+  player_name?: string
+  own?: boolean
   [k: string]: unknown
 }
 
+/** GET /api/market/me/trades 分页元素（tradeView）。 */
 export interface MarketTrade {
   trade_id: string | number
   type: string
@@ -95,20 +152,68 @@ export interface MarketTrade {
   name?: string
   price: number
   quantity: number
+  total_amount?: number
+  fee?: number
   time?: string
+  traded_at?: string
+  role?: 'BUYER' | 'SELLER' | string
   [k: string]: unknown
 }
 
+/** GET /api/market/me/warehouse。 */
 export interface MarketWarehouse {
-  money: number
-  items: WarehouseItem[]
+  money?: number
+  money_balance?: number
+  balance?: number | null
+  currency_name?: string
+  economy_available?: boolean
+  hint?: string
+  items?: WarehouseItem[]
   [k: string]: unknown
 }
 
 export interface WarehouseItem {
+  item_base64?: string
   item_id: string
   name?: string
+  display_name?: string
+  material?: string
   quantity: number
+  [k: string]: unknown
+}
+
+/** GET /api/market/me/balance。 */
+export interface MarketBalance {
+  uuid?: string
+  balance?: number | null
+  currency_name?: string
+  economy_available?: boolean
+  warehouse_money?: number
+  [k: string]: unknown
+}
+
+/** 成交分页响应。 */
+export interface MarketTradesPaginated {
+  items?: MarketTrade[]
+  trades?: MarketTrade[]
+  page?: number
+  page_size?: number
+  size?: number
+  total?: number
+  total_pages?: number
+  [k: string]: unknown
+}
+
+/** 商品列表分页响应。 */
+export interface MarketItemsPaginated {
+  items?: MarketItem[]
+  page?: number
+  page_size?: number
+  total?: number
+  total_pages?: number
+  total_items?: number
+  buy_page?: boolean
+  query?: string
   [k: string]: unknown
 }
 
